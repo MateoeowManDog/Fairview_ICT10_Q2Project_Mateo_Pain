@@ -1,0 +1,73 @@
+ <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Page</title>
+        <style>
+            body { font-family: system-ui, Arial, sans-serif; padding: 1rem; max-width:700px; }
+            label, select, button { display:block; margin:.5rem 0; }
+            #output { white-space: pre-wrap; border:1px solid #ddd; padding:.75rem; margin-top:.75rem; }
+            ul { margin:0; padding-left:1.25rem; }
+        </style>
+        <style>
+        body {
+    font-family: Arial;
+    background-color: #f7eaea;
+    padding: 20px;
+}
+
+nav a {
+    margin-right: 15px;
+    font-weight: bold;
+    color: maroon;
+    text-decoration: none;
+}
+
+header {
+    background-color:  rgb(94, 172, 173);
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+button {
+    background-color: rgb(94, 172, 173);
+    color: white;
+    padding: 10px;
+    border: none;
+    margin-top: 10px;
+}
+
+input, select {
+    display: block;
+    margin: 5px 0;
+    padding: 8px;
+}
+    </style>
+    </head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="calc.html">Calculator</a>
+    <a href="clubs.html">Clubs</a>
+</nav>
+
+<h2>Student Grade Calculator</h2>
+
+<input id="science" placeholder="Science">
+<input id="math" placeholder="Math">
+<input id="english" placeholder="English">
+<input id="filipino" placeholder="Filipino">
+<input id="ict" placeholder="ICT">
+<input id="pe" placeholder="PE">
+
+<button py-click="compute()">Calculate GWA</button>
+
+<p id="output"></p>
+
+<py-script src="main.py"></py-script>
+
+</body>
+</html>
