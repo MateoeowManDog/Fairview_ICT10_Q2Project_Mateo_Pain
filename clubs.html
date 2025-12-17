@@ -1,0 +1,135 @@
+ <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Page</title>
+        <style>
+            body { font-family: system-ui, Arial, sans-serif; padding: 1rem; max-width:700px; }
+            label, select, button { display:block; margin:.5rem 0; }
+            #output { white-space: pre-wrap; border:1px solid #ddd; padding:.75rem; margin-top:.75rem; }
+            ul { margin:0; padding-left:1.25rem; }
+        </style>
+        <style>
+        body {
+    font-family: Arial;
+    background-color: #f7eaea;
+    padding: 20px;
+}
+
+nav a {
+    margin-right: 15px;
+    font-weight: bold;
+    color: maroon;
+    text-decoration: none;
+}
+
+header {
+    background-color:  rgb(94, 172, 173);
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+button {
+    background-color: rgb(94, 172, 173);
+    color: white;
+    padding: 10px;
+    border: none;
+    margin-top: 10px;
+}
+
+input, select {
+    display: block;
+    margin: 5px 0;
+    padding: 8px;
+}
+    </style>
+    </head>
+        <body>
+     <nav>
+    <a href="index.html">Home</a>
+    <a href="calc.html">Calculator</a>
+    <a href="clubs.html">Clubs</a>
+    </nav>
+
+
+        <h1>School Club Information</h1>
+
+        <label for="clubSelect">Select a club</label>
+        <select id="clubSelect"></select>
+        <button id="showBtn">Show Info</button>
+
+        <div id="output"></div>
+
+        <script>
+            const clubs = {
+                "Marching Band": {
+                    "Description": "A band club for music enthusiasts.",
+                    "Meeting Time": "Tuesday and Wednesday 03:00-4:30 PM",
+                    "Location": "Band Room",
+                    "Moderator": "Mr. Emilio Alumno",
+                    "Number of Members": 25,
+                    "Category": "Music"
+                },
+                "Glee Club": {
+                    "Description": "A singing club for students who love choir.",
+                    "Meeting Time": "Monday 03:00-05:00 PM",
+                    "Location": "High School Music Room",
+                    "Moderator": "Mr. Denver Martin",
+                    "Number of Members": 20,
+                    "Category": "Music"
+                },
+                "Math Club": {
+                    "Description": "Club for students who love solving math problems.",
+                    "Meeting Time": "Monday 02:30-03:00 PM",
+                    "Location": "Room 404",
+                    "Moderator": "Mr. Nicole Gabuya",
+                    "Number of Members": 15,
+                    "Category": "Academic"
+                }
+            };
+
+ const sel = document.getElementById('clubSelect');
+ const out = document.getElementById('output');
+ const btn = document.getElementById('showBtn');
+
+ function populate() {
+
+sel.innerHTML = '';
+
+const defaultOpt = document.createElement('option');
+defaultOpt.value = '';
+defaultOpt.textContent = '-- choose a club --';
+sel.appendChild(defaultOpt);
+
+Object.keys(clubs).forEach(name => {
+    const opt = document.createElement('option');
+     opt.value = name;
+     opt.textContent = name;
+     sel.appendChild(opt);
+        });
+         }
+
+        function showInfo() {
+         const name = sel.value;
+            if (!name) {
+            out.textContent = '';
+               return;
+                  }
+        const club = clubs[name];
+        const lines = [name];
+            Object.keys(club).forEach(key => {
+              lines.push(`${key}: ${club[key]}`);
+                  });
+                 out.textContent = lines.join('\n');
+               }
+
+        populate();
+        sel.value = '';
+
+        btn.onclick = showInfo;
+        sel.onchange = showInfo;
+    </script>
+    </body>
+    </html>
